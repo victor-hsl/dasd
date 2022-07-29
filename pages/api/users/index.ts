@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { sampleUserData } from '../../../utils/sample-data'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods","OPTIONS, GET, POST, PUT, PATCH, DELETE");
   try {
     if (!Array.isArray(sampleUserData)) {
       throw new Error('Cannot find user data')
